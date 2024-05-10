@@ -4,21 +4,23 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="css/reset.css">
+   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-      <h1>Форма входу</h1>
+      <h1>Вхід</h1>
       <form id="loginForm">
-         <label for="email">Електронна пошта:</label>
+         <label for="email">Пошта</label>
          <input type="email" id="email" required>
       
-         <label for="password">Пароль:</label>
+         <label for="password">Пароль</label>
          <input type="password" id="password" required>
          <div class="password-toggle" onclick="togglePassword()">
-            <img src="image/eye_close_icon.jpg" alt="Показати пароль" id="showPassword">
+            <img src="images/Око.png" alt="Показати пароль" id="showPassword">
          </div>
-      
-         <input type="submit" value="Увійти">
+            <a class="password-forget" href="#">Забули пароль?</a>
+
+         <input class="reg-button" type="submit" value="Увійти">
       </form>
       <script src="script.js"></script>
 </body>
