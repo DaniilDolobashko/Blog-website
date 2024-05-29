@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="{% static '/CSS/styles.css' %}">
+</head>
+<body>
+      <h1>Вхід</h1>
+      <form id="loginForm" method="POST">
+          {% csrf_token %}
+         <label for="username">Нік</label>
+         <input type="text" id="username" name="username">
+      
+         <label for="password">Пароль</label>
+         <input type="password" id="password" name="password">
+
+            <a class="password-forget" href="#">Забули пароль?</a><br>
+            <a class="password-forget" href="{% url 'signup' %}">Реєстрація</a>
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+
+
+         <input class="reg-button" type="submit" value="Увійти">
+      </form>
+      <script src="{% static 'JS/script.js' %}"></script>
+</body>
+</html>

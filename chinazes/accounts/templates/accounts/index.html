@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Chinazes</title>
+   <link rel="stylesheet" href="{% static '/CSS/styles.css' %}">
+</head>
+<body>
+<h1>Main</h1>
+
+<a href="{% url 'signup' %}"><br>
+    Sing up
+</a>
+
+<a href="{% url 'profile' %}"><br><br>
+    profile
+</a>
+
+{% for i in articles %}
+    <h2>
+        {{i.name}}
+    </h2>
+    <h3>
+        {{i.author}} {{i.date_created}}
+    </h3>
+{% endfor %}
+      <script src="{% static 'JS/script.js' %}"></script>
+</body>
+</html>

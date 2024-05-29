@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="{% static '/CSS/styles.css' %}">
+</head>
+<body>
+   <h1>Створення облікового запису</h1>
+   <form id="registrationForm" method="POST" action="">
+      {% csrf_token %}
+
+      <label>Нік</label>
+      {{ form.username }}
+   
+      <label>ПІБ</label>
+      {{ form.first_name }}
+   
+      <label>Стать</label>
+      {{ form.gender }}
+   
+      <label>Вік</label>
+      {{ form.age }}
+   
+      <label class="country" for="country">Країна</label>
+      <select id="country"></select>
+
+      <label>Номер телефону</label>
+      {{ form.phone }}
+   
+      <label>Пошта</label>
+      {{ form.email }}
+
+      <label>Пароль</label>
+      {{ form.password1 }}
+
+      <label>Підтвердити пароль</label>
+      {{ form.password2 }}
+
+
+<!--   <div class="file-upload-wrapper">-->
+<!--      <label for="profilePhoto" class="file-upload-btn">Завантажити фото</label>-->
+<!--      <input type="file" name="profilePhoto" id="profilePhoto" accept="image/*" onchange="updateFileName(this)" required>-->
+<!--      <span class="file-name">Файл не вибрано</span>-->
+<!--   </div>-->
+
+      <input class="reg-button" type="submit" value="Create User">
+   </form>
+      {{ form.errors }}
+      <a href="{% url 'home' %}" class="reg-button">На головну</a>
+   <a href="{% url 'signin' %}" class="reg-button">Увійти</a>
+
+      <script src="{% static 'JS/script.js' %}"></script>
+</body>
+</html>
