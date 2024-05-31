@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CSS/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'CSS/styles.css' %}" />
+</head>
+<body>
+    <h1>Постинг сатті</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="name">Назва статті</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="text">Текст статті</label>
+        <textarea id="text" name="text" required></textarea>
+
+        <label for="category">Категорія</label>
+        <select id="category" name="category" required>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Design">Design</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="author">Автор</label>
+        <input type="text" id="author" name="author" value="{{ request.user.username }}" required readonly>
+
+        <button type="submit" class="reg-button">Запостити</button>
+        <a href="{% url 'home' %}" class="reg-button">На головну</a>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
+

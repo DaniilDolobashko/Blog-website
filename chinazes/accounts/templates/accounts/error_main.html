@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cheenazes Blog</title>
+    <link rel="stylesheet" href="{% static 'CSS/reset.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'CSS/main.css' %}" />
+
+    <style>
+      .center-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+    #main_error {
+      margin-top: 200px;
+      text-align: center;
+      font-size: 50px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <section class="logo-auth">
+          <div class="logo">
+            <img src="{% static 'IMG/logo-chinazes.png' %}" alt="Cheenazes Blog Logo" />
+            <h1><a href="{% url 'home' %}">Cheenazes блог</a></h1>
+            <div class="auth">
+              <a href="{% url 'signin' %}">Вхід</a>
+              <a href="{% url 'signup' %}">Реєстрація</a>
+              <a href="{% url 'profile' %}">Профіль</a>
+            </div>
+          </div>
+        </section>
+        <div class="center-container">
+             <h2 id="main_error">Виникла помилка!</h2>
+        </div>
+  </body>
+</html>

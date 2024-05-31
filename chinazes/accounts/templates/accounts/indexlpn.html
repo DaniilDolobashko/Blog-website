@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cheenazes Blog</title>
+    <link rel="stylesheet" href="{% static 'CSS/reset.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'CSS/main.css' %}" />
+
+    <style>
+      .q:hover{
+        text-decoration: underline;
+        transition: color .2s;
+      }
+        #lpn{
+          text-decoration: underline;
+      }
+      .topics{
+        padding: 20px;
+      }
+
+      .topics:hover{
+        background-color: black;
+        color: white;
+        transition: color .2s;
+        transition: background-color .5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <section class="logo-auth">
+          <div class="logo">
+            <img src="{% static 'IMG/logo-chinazes.png' %}" alt="Cheenazes Blog Logo" />
+            <h1><a href="{% url 'home' %}">Cheenazes блог</a></h1>
+            <div class="auth">
+              <a href="{% url 'signin' %}">Вхід</a>
+              <a href="{% url 'logout' %}">Вихід</a>
+              <a href="{% url 'signup' %}">Реєстрація</a>
+              <a href="{% url 'profile' %}">Профіль</a>
+              <a href="{% url 'creatArticle' %}">Створити пост</a>
+            </div>
+          </div>
+        </section>
+        <section class="navigation">
+          <hr />
+          <nav>
+            <ul>
+              <li><a class="topics" id="front" href="{% url 'front' %}">FRONTEND</a></li>
+              <li><a class="topics" id="back" href="{% url 'back' %}">BACKEND</a></li>
+              <li><a class="topics" id="dis" href="{% url 'design' %}">ДИЗАЙН</a></li>
+              <li><a class="topics" id="other" href="{% url 'other' %}">ІНШЕ</a></li>
+            </ul>
+          </nav>
+          <hr />
+        </section>
+      </header>
+      <main>
+        <section class="news">
+          <div class="news-title">
+            <h2>Стрічка останній новин</h2>
+          </div>
+          {% for i in articles|slice:":4" %}
+            <ul>
+              <li>
+                <span>{{ i.author }} {{ i.date_created }}</span>
+                <a href="{% url 'article_detail' i.id %}">{{ i.name }}</a>
+              </li>
+            </ul>
+          {% endfor %}
+
+        </section>
+        <section class="months">
+          <ul>
+            <li><a href="{% url 'sich' %}" class ="q" id = "sich">Січ</a></li>
+            <li><a href="{% url 'lyt' %}" class ="q" id = "lyt">Лют</a></li>
+            <li><a href="{% url 'ber' %}" class ="q" id = "ber">Бер</a></li>
+            <li><a href="{% url 'kvt' %}" class ="q" id = "kvt">Квт</a></li>
+            <li><a href="{% url 'trv' %}" class ="q" id = "trv">Трв</a></li>
+            <li><a href="{% url 'chrv' %}" class ="q" id = "chrv">Чрв</a></li>
+            <li><a href="{% url 'lpn' %}" class ="q" id = "lpn">Лпн</a></li>
+            <li><a href="{% url 'srp' %}" class ="q" id = "srp">Срп</a></li>
+            <li><a href="{% url 'vrs' %}" class ="q" id = "vrs">Врс</a></li>
+            <li><a href="{% url 'zhvt' %}" class ="q" id = "zhvt">Жвт</a></li>
+            <li><a href="{% url 'lst' %}" class ="q" id = "lst">Лст</a></li>
+            <li><a href="{% url 'grd' %}" class ="q" id = "grd">Грд</a></li>
+          </ul>
+        </section>
+      </main>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2139.3771819900844!2d30.497281912078133!3d50.382167986480034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4c8c01025c4c5%3A0x9350245bf49c543d!2sNational%20University%20of%20Life%20and%20Environmental%20Sciences%20of%20Ukraine!5e0!3m2!1sen!2sua!4v1716657580911!5m2!1sen!2sua"
+        width="100%"
+        height="350"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+
+      <footer>
+        <div class="contacts">
+          <h3>Контакти</h3>
+          <a href="#">Instagram</a>
+          <a href="mailto:CheenazesBlog@gmail.com">CheenazesBlog@gmail.com</a>
+          <a href="tel:+380672745954">+380672745954</a>
+          <p class="copyrights">Copyright © 2024 ChinazesBlog</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

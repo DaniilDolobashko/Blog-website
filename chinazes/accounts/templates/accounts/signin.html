@@ -6,7 +6,8 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   <link rel="stylesheet" href="{% static '/CSS/styles.css' %}">
+   <link rel="stylesheet" href="{% static '/CSS/reset.css' %}" />
+    <link rel="stylesheet" href="{% static '/CSS/styles.css' %}" />
 </head>
 <body>
       <h1>Вхід</h1>
@@ -18,7 +19,7 @@
          <label for="password">Пароль</label>
          <input type="password" id="password" name="password">
 
-            <a class="password-forget" href="#">Забули пароль?</a><br>
+            <a class="password-forget" href="{% url 'pass_recovery' %}">Забули пароль?</a><br>
             <a class="password-forget" href="{% url 'signup' %}">Реєстрація</a>
           {% for message in messages %}
             <p>{{ message }}</p>

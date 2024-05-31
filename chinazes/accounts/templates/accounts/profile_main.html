@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CSS/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'CSS/styles.css' %}" />
+  </head>
+
+  <body>
+    <div class="profile-wrapper">
+      <h1>Особистий кабінет</h1>
+      <div class="avatar-wrapper">
+        {% if profile.profile_photo %}
+                <img class="avatar" src="{{ profile.profile_photo.url }}" alt="Аватар" />
+        {% else %}
+                <img class="avatar" src="{% static 'IMG/заглушка.png' %}" alt="Аватар" />
+        {% endif %}
+      </div>
+
+      <p class="description">Нік</p>
+      <div class="white-bg"><p class="info">{{ request.user.username }}</p></div>
+
+      <p class="description">ПІБ</p>
+      <div class="white-bg"><p class="info">{{ profile.first_name }}</p></div>
+
+      <p class="description">Стать</p>
+      <div class="white-bg"><p class="info">{{ profile.gender }}</p></div>
+
+      <p class="description">Вік</p>
+      <div class="white-bg"><p class="info">{{ profile.age }}</p></div>
+
+      <p class="description">Країна</p>
+      <div class="white-bg"><p class="info">{{ profile.country }}</p></div>
+
+      <p class="description">Номер телефону</p>
+      <div class="white-bg"><p class="info">{{ profile.phone_number }}</p></div>
+
+      <p class="description">Пошта</p>
+      <div class="white-bg"><p class="info">{{ request.user.email }}</p></div>
+
+
+      <a href="{% url 'home' %}" class="reg-button">Редагувати</a>
+      <a href="{% url 'home' %}" class="reg-button">На головну</a>
+    </div>
+    <script src="{% static 'JS/script.js' %}"></script>
+  </body>
+</html>
+

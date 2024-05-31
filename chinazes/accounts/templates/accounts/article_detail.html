@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cheenazes Blog</title>
+    <link rel="stylesheet" href="{% static 'CSS/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'CSS/main.css' %}" />
+    <style>
+      #line{
+        border-top: 3px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <section class="logo-auth">
+          <div class="logo">
+            <img src="{% static 'IMG/logo-chinazes.png' %}" alt="Cheenazes Blog Logo" />
+            <h1><a href="{% url 'home' %}">Cheenazes блог</a></h1>
+            <div class="auth">
+              <a href="{% url 'signin' %}">Вхід</a>
+              <a href="{% url 'logout' %}">Вихід</a>
+              <a href="{% url 'signup' %}">Реєстрація</a>
+              <a href="{% url 'profile' %}">Профіль</a>
+              <a href="{% url 'creatArticle' %}">Створити пост</a>
+            </div>
+          </div>
+        </section>
+
+      </header>
+
+      <main>
+        <section class="news">
+          <div id="line" class="news-title">
+            <h2>{{ article.name }}</h2>
+          </div>
+          <div class="post">
+            <p class="main-text">{{ article.text }}</p>
+            <p class="sub-text">Category: {{ article.category }}</p>
+            <p class="sub-text">Created on: {{ article.date_created }}</p>
+            <p class="sub-text">Author: {{ author_username }}</p>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="contacts">
+          <h3>Контакти</h3>
+          <a href="#">Instagram</a>
+          <a href="mailto:CheenazesBlog@gmail.com">CheenazesBlog@gmail.com</a>
+          <a href="tel:+380672745954">+380672745954</a>
+          <p class="copyrights">Copyright © 2024 ChinazesBlog</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
